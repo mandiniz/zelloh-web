@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #CCFF00;
+}
+
+html, body {
+  overflow-x: hidden;
+  height: auto;
+  scroll-behavior: smooth;
+}
+
+/* IMPORTANTE: Los padres de un elemento sticky NO PUEDEN tener overflow: hidden */
+main {
+  overflow: visible !important;
+  display: block !important;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+/* Custom scrollbar para ese look fintech */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+/* Evita que contenedores intermedios bloqueen el scroll */
+#__next, main {
+  overflow: visible !important;
+}
+
+/* OCULTAR COMPLETAMENTE EL LOADING DE GOOGLE TRANSLATE */
+.goog-te-spinner-pos,
+.goog-te-spinner,
+.goog-te-gadget-simple,
+.goog-te-banner-frame,
+.goog-te-menu-frame,
+.goog-te-menu-value,
+.goog-te-balloon-frame,
+iframe[src*="translate.googleapis.com"],
+#goog-gt-tt,
+.goog-te-balloon,
+.goog-te-tooltip,
+.skiptranslate iframe,
+.goog-te-spinner {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -9999 !important;
+}
+
+/* Prevenir el banner superior */
+body > .skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Asegurar que el body no se desplace por Google Translate */
+body {
+  top: 0 !important;
+}
+
+/* Ocultar cualquier otro elemento que Google Translate pueda inyectar */
+.skiptranslate {
+  display: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Para móviles, asegurar que no haya espacios en blanco */
+.goog-te-gadget {
+  display: none !important;
+}
